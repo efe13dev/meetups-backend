@@ -9,17 +9,17 @@ estos
 
 - Visualizar el listado de meetups ordenador por fecha más próxima (no
   aparecen los que ya han pasado). Solo debe aparecer título, foto,
-  temática, localidad, fecha y hora y número de asistentes
+  temática, localidad, fecha y hora y número de asistentes.
 
 - Filtrar meetups por:
 
 1. Ciudad
 2. Temática
 
-- **Opcional**: Posibilidad de ordenar meetups por número de asistentes
 - Visualizar un meetup en detalle. Deben de aparecer los mismos datos que en listado, pero a mayores la descripción y el listado de asistentes
 - Login (email y password)
 - Registro (email, password, nombre, biografía y avatar)
+- **Opcional**: Posibilidad de ordenar meetups por número de asistentes
 
 ### USUARIOS REGISTRADOS:
 
