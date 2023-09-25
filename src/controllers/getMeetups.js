@@ -1,9 +1,9 @@
-const selectMeetups = require('../model/mettups/selectMeetups.js');
+// const selectMeetups = require('../model/mettups/selectMeetups.js');
 
 const getMeetups = async (req, res) => {
   try {
-    const meetups = await selectMeetups();
-    res.status(200).send({ status: 'ok', data: meetups });
+    // const meetups = await selectMeetups();
+    res.status(200).send('meetups');
   } catch (error) {
     console.log(error.message);
   }
