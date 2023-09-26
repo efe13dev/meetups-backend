@@ -2,7 +2,7 @@ const insertMeetup = require('../../model/mettups/insertMeetup.js');
 
 const createMeetup = async (req, res) => {
   const { title, description, category_id, city_id, date, user_id } = req.body;
-  const meetup = await insertMeetup({
+  const meetup_id = await insertMeetup({
     title,
     description,
     category_id,
@@ -10,6 +10,17 @@ const createMeetup = async (req, res) => {
     date,
     user_id
   });
-  res.status(200).json({ status: 'ok', meetup });
+  res.status(200).send({
+    status: 'ok',
+    data: {
+      id: meetup_id,
+      title,
+      description,
+      category_id,
+      city_id,
+      date,
+      user_id
+    }
+  });
 };
 module.exports = createMeetup;

@@ -7,11 +7,11 @@ Content-Type: application/json
 
 {
     "title": "Ruta de senderismo",
-    "description": "Conecta con la naturalexa realizando esta ruta que es apta para todas las edades",
+    "description": "Conecta con la naturaleza realizando esta ruta que es apta para todas las edades",
     "photo":null,
     "category_id": 9,
     "city_id": 6,
-    "date": "2023-10-19T09:00:00.000Z",
+    "date": "2023-11-05 16:30:00",
     "user_id":1
 }
 
