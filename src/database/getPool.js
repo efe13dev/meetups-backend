@@ -8,13 +8,7 @@ const {
   DATABASE_PASSWORD,
   DATABASE_NAME
 } = process.env;
-console.log(
-  DATABASE_HOST,
-  DATABASE_PORT,
-  DATABASE_USER,
-  DATABASE_PASSWORD,
-  DATABASE_NAME
-);
+
 let pool;
 
 // Cuando llamemos a la función getPool, si no existe un pool todavía, crea uno y nos los da. Si ya existe, nos los da directamente

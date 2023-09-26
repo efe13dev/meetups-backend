@@ -1,1 +1,17 @@
+### Recuperar todas las meetups
 GET http://localhost:3000/meetups
+
+### Crear una nueva meetup
+POST http://localhost:3000/meetups
+Content-Type: application/json
+
+{
+    "title": "Ruta de senderismo",
+    "description": "Conecta con la naturalexa realizando esta ruta que es apta para todas las edades",
+    "photo":null,
+    "category_id": 9,
+    "city_id": 6,
+    "date": "2023-10-19T09:00:00.000Z",
+    "user_id":1
+}
+

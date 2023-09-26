@@ -9,6 +9,4 @@ const getMeetups = async (req, res) => {
   }
 };
 
-module.exports = {
-  getMeetups
-};
+module.exports = getMeetups;

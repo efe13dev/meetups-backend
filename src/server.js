@@ -2,7 +2,8 @@ require('dotenv').config();
 const cors = require('cors');
 
 const express = require('express');
-const { getMeetups } = require('./controllers/meetups/getMeetups.js');
+const getMeetups = require('./controllers/meetups/getMeetups.js');
+const createMeetup = require('./controllers/meetups/createMeetup.js');
 
 const app = express();
 
