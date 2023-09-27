@@ -19,3 +19,5 @@ Content-Type: application/json
     "user_id":1
 }
 
+### Borrar una meetup por id
+DELETE http://localhost:3000/meetup/25
