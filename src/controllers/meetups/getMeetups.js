@@ -1,4 +1,4 @@
-const selectMeetups = require('../../model/mettups/selectMeetups.js');
+const selectMeetups = require('../../model/meetups/selectMeetups.js');
 
 const getMeetups = async (req, res) => {
   try {

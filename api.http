@@ -1,6 +1,10 @@
 ### Recuperar todas las meetups
 GET http://localhost:3000/meetups
 
+
+### Recuperar 1 meetup por su id
+GET http://localhost:3000/meetup/1
+
 ### Crear una nueva meetup
 POST http://localhost:3000/meetups
 Content-Type: application/json

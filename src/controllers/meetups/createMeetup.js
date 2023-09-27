@@ -1,4 +1,4 @@
-const insertMeetup = require('../../model/mettups/insertMeetup.js');
+const insertMeetup = require('../../model/meetups/insertMeetup.js');
 
 const createMeetup = async (req, res) => {
   const { title, description, category_id, city_id, date, user_id } = req.body;
