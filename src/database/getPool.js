@@ -20,7 +20,7 @@ const getPool = () => {
       user: DATABASE_USER,
       password: DATABASE_PASSWORD,
       database: DATABASE_NAME,
-      timezone: 'Z'
+      timezone: 'local'
     });
   }
 

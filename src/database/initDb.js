@@ -26,23 +26,6 @@ const initDb = async () => {
         avatar VARCHAR(500));
     `);
 
-    console.log('Creating categories table...');
-
-    await pool.query(`
-            CREATE TABLE categories
-        (id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
-        name VARCHAR(50)
-        );
-    `);
-
-    console.log('Creating cities table...');
-    await pool.query(`
-            CREATE TABLE cities
-        (id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
-        name VARCHAR(50)
-        );
-    `);
-
     console.log('Creating meetups table...');
 
     await pool.query(`
@@ -51,15 +34,14 @@ const initDb = async () => {
     title VARCHAR(100) NOT NULL,
     description VARCHAR(4000) NOT NULL,
     photo VARCHAR(500),
-    category_id INT UNSIGNED NOT NULL,
-    city_id INT UNSIGNED NOT NULL,
+    category ENUM('Fotografia','Ciencia','Tecnologia','Gastronomia','Naturaleza','Literatura','Musica','Salud','Arte','Cultura','Otras'),
+    city ENUM ('Andalucia','Aragon','Asturias','Cantabria','Castilla_León','Castilla_La_Mancha','Cataluña','Madrid', 
+    'Valencia','Extremadura','Galicia','Baleares','Canarias','Rioja','Murcia','Navarra','Pais_Vasco'),
     date DATETIME NOT NULL,
     assistants INT UNSIGNED DEFAULT 0,
     user_id INT UNSIGNED NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
-    FOREIGN KEY (category_id) REFERENCES categories (id) ON DELETE CASCADE);
-            
-        
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE);
+
     `);
 
     console.log('Creating meetups assistants table...');

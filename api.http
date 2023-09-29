@@ -3,7 +3,8 @@ GET http://localhost:3000/meetups
 
 
 ### Recuperar 1 meetup por su id
-GET http://localhost:3000/meetup/1
+GET http://localhost:3000/meetup/5
+
 
 ### Crear una nueva meetup
 POST http://localhost:3000/meetups
@@ -13,7 +14,7 @@ Content-Type: application/json
     "title": "Ruta de senderismo",
     "description": "Conecta con la naturaleza realizando esta ruta que es apta para todas las edades",
     "photo":null,
-    "category_id": 9,
+    "category_id": 5,
     "city_id": 6,
     "date": "2023-11-05 16:30:00",
     "user_id":1
