@@ -7,6 +7,8 @@ const createMeetup = require('./controllers/meetups/createMeetup.js');
 const getMeetupById = require('./controllers/meetups/getMeetupById.js');
 const deleteMeetup = require('./controllers/meetups/deleteMeetup.js');
 
+const createUser = require('./controllers/users/createUser.js');
+
 const handleNotFound = require('./middlewares/handleNotFound.js');
 const handleError = require('./middlewares/handleError.js');
 
@@ -15,7 +17,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const { PORT } = process.env;
-
+// endpoints users
+app.post('/users', createUser);
 // endopints meetups
 app.get('/meetups', getMeetups);
 app.post('/meetups', createMeetup);

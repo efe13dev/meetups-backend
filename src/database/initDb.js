@@ -20,7 +20,7 @@ const initDb = async () => {
             CREATE TABLE users 
         (id INT UNSIGNED UNIQUE AUTO_INCREMENT NOT NULL PRIMARY KEY,
         email VARCHAR(50) NOT NULL UNIQUE,
-        password VARCHAR(50)NOT NULL,
+        password VARCHAR(100)NOT NULL,
         name VARCHAR(50) NOT NULL,
         biography VARCHAR(2000),
         avatar VARCHAR(500));
@@ -44,7 +44,7 @@ const initDb = async () => {
 
     `);
 
-    console.log('Creating meetups assistants table...');
+    console.log('Creating assistants table...');
     await pool.query(`
         CREATE TABLE meetups_asistentes
     (id_user INT UNSIGNED NOT NULL,

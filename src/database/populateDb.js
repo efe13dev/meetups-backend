@@ -50,6 +50,9 @@ const populateDb = async () => {
   dejando un impacto perdurable en la era digital.'
   )
   `);
+    console.log('✅ users inserted');
+
+    console.log('Inserting meetups...');
 
     await pool.query(`
        INSERT INTO meetups (title,description,category,city,date,user_id)
@@ -111,6 +114,8 @@ const populateDb = async () => {
    5
    );
     `);
+
+    console.log('✅ meetups inserted');
 
     console.log('¡All done! 🤗');
   } catch (error) {
