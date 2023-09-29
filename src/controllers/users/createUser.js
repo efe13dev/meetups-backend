@@ -4,8 +4,9 @@ const insertUser = require('../../model/users/insertUser.js');
 const createUser = async (req, res, next) => {
   try {
     const { email, password, name, biography } = req.body;
-    const user = selectUserByEmail(email);
-    if (user > 0) {
+    const user = await selectUserByEmail(email);
+    console.log(user);
+    if (user) {
       throw new Error('User already exists');
     }
     const encryptedPassword = await bcrypt.hash(password, 10);
