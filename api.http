@@ -32,11 +32,11 @@ Content-Type: application/json
 {
     "email":"rodolfo@email.com",
     "password":"12345",
-    "name":"Rodolfo",
+    "name":"Ro",
     "biography":"Rodolfo García, apasionado chef de Barcelona. Comenzó en cocina familiar y luego recorrió el mundo perfeccionando su arte. Dueño del aclamado restaurante 'Sabor de la Pasión'. Innovador culinario y defensor de la sostenibilidad. Su legado en la gastronomía es insuperable, fusionando tradición y vanguardia."
 
 
 }
 
 ### Eliminar un usuario
-DELETE http://localhost:3000/users/20
+DELETE http://localhost:3000/users/11
