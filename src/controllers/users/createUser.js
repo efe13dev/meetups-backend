@@ -4,8 +4,13 @@ const selectUserByEmail = require('../../model/users/selectUserByEmail.js');
 const insertUser = require('../../model/users/insertUser.js');
 const createUser = async (req, res, next) => {
   try {
-    const [errorz] = await userSchema.parseAsync(req.body);
-    console.log(errorz);
+    const result = await userSchema.safeParseAsync(req.body);
+    if (!result.success) {
+      const [error] = JSON.parse(result.error);
+      console.log(error);
+      throw new Error(`field:${error.path[0]}, ${error.message}`);
+    }
+
     const { email, password, name, biography } = req.body;
     const user = await selectUserByEmail(email);
     if (user) {
@@ -22,6 +27,7 @@ const createUser = async (req, res, next) => {
       .status(201)
       .send({ status: 'ok', id: insertId, email, message: 'user created' });
   } catch (error) {
+    console.log(error.code);
     next(error);
   }
 };
