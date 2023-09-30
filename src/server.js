@@ -12,6 +12,7 @@ const createUser = require('./controllers/users/createUser.js');
 const loginUser = require('./controllers/users/loginUser.js');
 const deleteUser = require('./controllers/users/deleteUser.js');
 
+const validateAuth = require('./middlewares/validateAuth.js');
 const handleNotFound = require('./middlewares/handleNotFound.js');
 const handleError = require('./middlewares/handleError.js');
 
@@ -28,7 +29,7 @@ app.post('/login', loginUser);
 
 // endopints meetups
 app.get('/meetups', getMeetups);
-app.post('/meetups', createMeetup);
+app.post('/meetups', validateAuth, createMeetup);
 app.get('/meetup/:id', getMeetupById);
 app.delete('/meetup/:id', deleteMeetup);
 
