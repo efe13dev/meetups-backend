@@ -5,7 +5,6 @@ const createUser = async (req, res, next) => {
   try {
     const { email, password, name, biography } = req.body;
     const user = await selectUserByEmail(email);
-    console.log(user);
     if (user) {
       throw new Error('User already exists');
     }

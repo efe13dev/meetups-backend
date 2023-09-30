@@ -1,6 +1,6 @@
 require('dotenv').config();
+const bcrypt = require('bcrypt');
 const getPool = require('./getPool');
-// const bcrypt = require('bcrypt');
 
 // Funcion que inserta datos de prueba en la DB
 
@@ -15,14 +15,14 @@ const populateDb = async () => {
     await pool.query(`INSERT INTO users (email, password, name, biography)
   VALUES  
   ('julia@email.com',
-  '12345',
+  "${await bcrypt.hash('12345', 10)}",
   'Julia',
   'Soy Julia, una incansable exploradora, que ha recorrido selvas y montañas en busca de la naturaleza en su forma más pura. 
   Mis descubrimientos llevaron a importantes avances en conservación y ecología, 
   dejando un legado duradero para las generaciones futuras.'
   ),
   ('pepe@email.com',
-  '12345',
+  "${await bcrypt.hash('12345', 10)}",
   'Pepe',
   'Pepe, apasionado de la música desde niño, 
   se convirtió en un virtuoso del piano a temprana edad. 
@@ -30,20 +30,20 @@ const populateDb = async () => {
   donde cautivó a multitudes con su magia musical. Una vida dedicada a la melodía y la inspiración.'
   ),
   ('maria@email.com',
-  '12345',
+  "${await bcrypt.hash('12345', 10)}",
   'maria',
   'María, la panadera de corazón, dedicó su vida al arte del pan. Con manos hábiles y amor en cada masa, endulzó las vidas de su vecindario. 
   Su pan casero trascendió recetas, convirtiéndose en el alma de su comunidad.'
   ),
   ('juan@email.com',
-  '12345',
+  "${await bcrypt.hash('12345', 10)}",
   'Juan',
   'Juan, amante de la sencillez, disfruta de la vida en dos ruedas. 
    Pedaleando por su ciudad, encuentra la alegría en los pequeños placeres y el contacto con la naturaleza. 
    Su pasión por el ciclismo refleja su espíritu libre y su amor por la aventura.'
   ),
   ('jorge@email.com',
-  '12345',
+  "${await bcrypt.hash('12345', 10)}",
   'jorge',
   'Jorge, el visionario de la tecnología, fundó empresas innovadoras que revolucionaron la industria. 
   Su liderazgo y creatividad transformaron la forma en que vivimos y trabajamos, 
