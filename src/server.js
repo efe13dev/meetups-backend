@@ -8,6 +8,7 @@ const createMeetup = require('./controllers/meetups/createMeetup.js');
 const getMeetupById = require('./controllers/meetups/getMeetupById.js');
 const deleteMeetup = require('./controllers/meetups/deleteMeetup.js');
 
+const getUsers = require('./controllers/users/getUsers.js');
 const createUser = require('./controllers/users/createUser.js');
 const loginUser = require('./controllers/users/loginUser.js');
 const deleteUser = require('./controllers/users/deleteUser.js');
@@ -23,6 +24,7 @@ app.use(cors());
 const { PORT } = process.env;
 
 // endpoints users
+app.get('/users', getUsers);
 app.post('/users', createUser);
 app.delete('/users/:id', deleteUser);
 app.post('/login', loginUser);

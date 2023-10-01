@@ -1,3 +1,5 @@
+### ------------------MEETUPS--------------------
+
 ### Recuperar todas las meetups
 GET http://localhost:3000/meetups
 
@@ -23,6 +25,13 @@ Content-Type: application/json
 ### Borrar una meetup por id
 DELETE http://localhost:3000/meetup/9
 
+
+
+### ------------------USERS--------------------
+
+### Recuperar todos los usuarios
+
+GET http://localhost:3000/users
 
 ### Crear un usuario
 
