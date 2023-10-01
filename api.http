@@ -33,10 +33,9 @@ Content-Type: application/json
     "email":"rodolfo@email.com",
     "password":"12345",
     "name":"Rodolfo",
-    "biography":"Rodolfo García, apasionado chef de Barcelona. Comenzó en cocina familiar y luego recorrió el mundo perfeccionando su arte. Dueño del aclamado restaurante 'Sabor de la Pasión'. Innovador culinario y defensor de la sostenibilidad. Su legado en la gastronomía es insuperable, fusionando tradición y vanguardia."
-
-
+    "biography":"Rodolfo García, apasionado chef de Barcelona. Comenzó en cocina familiar y luego recorrió el mundo perfeccionando su arte. Dueño del aclamado restaurante 'Sabor de la Pasión'. Innovador culinario y defensor de la sostenibilidad. Su legado en la gastronomía es insuperable, fusionando tradición y vanguardia.",
+    "avatar":"enlace al avatar"
 }
 
 ### Eliminar un usuario
-DELETE http://localhost:3000/users/14
+DELETE http://localhost:3000/users/20

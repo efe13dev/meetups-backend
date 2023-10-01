@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const userSchema = require('../../schemas/usersSchema.js');
+const userSchema = require('../../schemas/userSchema.js');
 const selectUserByEmail = require('../../model/users/selectUserByEmail.js');
 const insertUser = require('../../model/users/insertUser.js');
 const createUser = async (req, res, next) => {
@@ -7,11 +7,11 @@ const createUser = async (req, res, next) => {
     const result = await userSchema.safeParseAsync(req.body);
     if (!result.success) {
       const [error] = JSON.parse(result.error);
-      console.log(error);
+
       throw new Error(`field:${error.path[0]}, ${error.message}`);
     }
 
-    const { email, password, name, biography } = req.body;
+    const { email, password, name, biography, avatar } = req.body;
     const user = await selectUserByEmail(email);
     if (user) {
       throw new Error('User already exists');
@@ -21,7 +21,8 @@ const createUser = async (req, res, next) => {
       email,
       password: encryptedPassword,
       name,
-      biography
+      biography,
+      avatar
     });
     res
       .status(201)
