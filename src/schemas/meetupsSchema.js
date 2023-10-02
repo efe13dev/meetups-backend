@@ -37,7 +37,6 @@ const meetupSchema = z.object({
     'Pais_Vasco'
   ]),
   date: z.string().datetime(),
-  assistants: z.number().nonnegative().optional(),
-  user_id: z.number().positive()
+  assistants: z.number().nonnegative().optional()
 });
 module.exports = meetupSchema;

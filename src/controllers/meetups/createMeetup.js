@@ -1,5 +1,6 @@
 const meetupSchema = require('../../schemas/meetupsSchema.js');
 const insertMeetup = require('../../model/meetups/insertMeetup.js');
+const { processAndSaveImage } = require('../../utils/processAndSaveImage.js');
 
 const createMeetup = async (req, res, next) => {
   try {
@@ -9,17 +10,25 @@ const createMeetup = async (req, res, next) => {
 
       throw new Error(`field:${error.path[0]}, ${error.message}`);
     }
-    const { title, description, photo, category, city, date, user_id } =
-      req.body;
+    const userId = req.auth.id;
+
+    const { title, description, photo, category, city, date } = req.body;
+    let imageName;
+    if (req.files) {
+      const avatar = req.files.photo;
+      imageName = await processAndSaveImage(avatar.data);
+    } else {
+      imageName = 'No image';
+    }
 
     const meetup_id = await insertMeetup({
       title,
       description,
-      photo,
+      photo: imageName,
       category,
       city,
       date,
-      user_id
+      user_id: userId
     });
     res.status(200).send({
       status: 'ok',
@@ -31,7 +40,7 @@ const createMeetup = async (req, res, next) => {
         category,
         city,
         date,
-        user_id
+        userId
       }
     });
   } catch (error) {
