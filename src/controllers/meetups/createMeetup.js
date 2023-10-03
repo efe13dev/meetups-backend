@@ -5,6 +5,7 @@ const processAndSaveImage = require('../../utils/processAndSaveImage.js');
 const createMeetup = async (req, res, next) => {
   try {
     const result = await meetupSchema.safeParseAsync(req.body);
+
     if (!result.success) {
       const [error] = JSON.parse(result.error);
 

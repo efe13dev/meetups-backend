@@ -19,7 +19,8 @@ const populateDb = async () => {
   'Julia',
   'Soy Julia, una incansable exploradora, que ha recorrido selvas y montañas en busca de la naturaleza en su forma más pura. 
   Mis descubrimientos llevaron a importantes avances en conservación y ecología, 
-  dejando un legado duradero para las generaciones futuras.', 'No image'
+  dejando un legado duradero para las generaciones futuras.',
+  'No image'
   ),
   ('pepe@email.com',
   "${await bcrypt.hash('12345', 10)}",
@@ -27,11 +28,12 @@ const populateDb = async () => {
   'Pepe, apasionado de la música desde niño, 
   se convirtió en un virtuoso del piano a temprana edad. 
   Su talento lo llevó a los escenarios más grandes del mundo,
-  donde cautivó a multitudes con su magia musical. Una vida dedicada a la melodía y la inspiración.', 'No image'
+  donde cautivó a multitudes con su magia musical. Una vida dedicada a la melodía y la inspiración.',
+  'No image'
   ),
   ('maria@email.com',
   "${await bcrypt.hash('12345', 10)}",
-  'maria',
+  'Maria',
   'María, la panadera de corazón, dedicó su vida al arte del pan. Con manos hábiles y amor en cada masa, endulzó las vidas de su vecindario. 
   Su pan casero trascendió recetas, convirtiéndose en el alma de su comunidad.',
   'No image'
@@ -46,7 +48,7 @@ const populateDb = async () => {
   ),
   ('jorge@email.com',
   "${await bcrypt.hash('12345', 10)}",
-  'jorge',
+  'Jorge',
   'Jorge, el visionario de la tecnología, fundó empresas innovadoras que revolucionaron la industria. 
   Su liderazgo y creatividad transformaron la forma en que vivimos y trabajamos, 
   dejando un impacto perdurable en la era digital.',
