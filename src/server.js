@@ -2,6 +2,7 @@ require('dotenv').config();
 const cors = require('cors');
 
 const express = require('express');
+const fileUpload = require('express-fileupload');
 
 const getMeetups = require('./controllers/meetups/getMeetups.js');
 const createMeetup = require('./controllers/meetups/createMeetup.js');
@@ -20,6 +21,7 @@ const handleError = require('./middlewares/handleError.js');
 const app = express();
 
 app.use(express.json());
+app.use(fileUpload());
 app.use(cors());
 const { PORT } = process.env;
 

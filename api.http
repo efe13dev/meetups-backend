@@ -16,11 +16,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjk2MjYx
 {
     "title": "Ruta de senderismo",
     "description": "Conecta con la naturaleza realizando esta ruta que es apta para todas las edades",
-    "photo":"enlace a foto",
     "category": "Salud",
     "city": "Asturias",
-    "date": "2023-10-01T15:30:00Z",
-    "user_id":1
+    "date": "2023-10-01T15:30:00Z"
 }
 
 ### Borrar una meetup por id

@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const userSchema = require('../../schemas/userSchema.js');
 const selectUserByEmail = require('../../model/users/selectUserByEmail.js');
 const insertUser = require('../../model/users/insertUser.js');
+const processAndSaveImage = require('../../utils/processAndSaveImage.js');
 const createUser = async (req, res, next) => {
   try {
     const result = await userSchema.safeParseAsync(req.body);
@@ -11,10 +12,17 @@ const createUser = async (req, res, next) => {
       throw new Error(`field:${error.path[0]}, ${error.message}`);
     }
 
-    const { email, password, name, biography, avatar } = req.body;
+    const { email, password, name, biography } = req.body;
     const user = await selectUserByEmail(email);
     if (user) {
       throw new Error('User already exists');
+    }
+    let processAvatar;
+    if (req.files) {
+      const avatar = req.files.avatar;
+      processAvatar = await processAndSaveImage(avatar.data);
+    } else {
+      processAvatar = 'No image';
     }
     const encryptedPassword = await bcrypt.hash(password, 10);
     const insertId = await insertUser({
@@ -22,7 +30,7 @@ const createUser = async (req, res, next) => {
       password: encryptedPassword,
       name,
       biography,
-      avatar
+      avatar: processAvatar
     });
     res
       .status(201)
