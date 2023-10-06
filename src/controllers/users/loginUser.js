@@ -1,8 +1,16 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const selectUserByEmail = require('../../model/users/selectUserByEmail.js');
+const loginSchema = require('../../schemas/loginSchema.js');
 const loginUser = async (req, res, next) => {
   try {
+    const result = await loginSchema.safeParseAsync(req.body);
+
+    if (!result.success) {
+      const [error] = JSON.parse(result.error);
+
+      throw new Error(`field:${error.path[0]}, ${error.message}`);
+    }
     const { email, password } = req.body;
     const user = await selectUserByEmail(email);
     if (!user) {
