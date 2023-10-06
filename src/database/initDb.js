@@ -38,7 +38,6 @@ const initDb = async () => {
     city ENUM ('Andalucia','Aragon','Asturias','Cantabria','Castilla_León','Castilla_La_Mancha','Cataluña','Madrid', 
     'Valencia','Extremadura','Galicia','Baleares','Canarias','Rioja','Murcia','Navarra','Pais_Vasco'),
     date DATETIME NOT NULL,
-    assistants INT UNSIGNED DEFAULT 0,
     user_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE);
 
