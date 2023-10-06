@@ -45,7 +45,7 @@ const initDb = async () => {
 
     console.log('Creating assistants table...');
     await pool.query(`
-        CREATE TABLE meetups_asistentes
+        CREATE TABLE inscriptions
     (id_user INT UNSIGNED NOT NULL,
     id_meetup INT UNSIGNED NOT NULL,
     PRIMARY KEY (id_user, id_meetup),
