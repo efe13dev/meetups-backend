@@ -14,6 +14,9 @@ const createUser = require('./controllers/users/createUser.js');
 const loginUser = require('./controllers/users/loginUser.js');
 const deleteUser = require('./controllers/users/deleteUser.js');
 
+const createInscription = require('./controllers/inscriptions/createInscription.js');
+const dropInscription = require('./controllers/inscriptions/dropInscription.js');
+
 const validateAuth = require('./middlewares/validateAuth.js');
 const handleNotFound = require('./middlewares/handleNotFound.js');
 const handleError = require('./middlewares/handleError.js');
@@ -36,6 +39,10 @@ app.get('/meetups', getMeetups);
 app.post('/meetups', validateAuth, createMeetup);
 app.get('/meetup/:id', getMeetupById);
 app.delete('/meetup/:id', deleteMeetup);
+
+// endpoints inscriptions
+app.post('/inscription/:id', validateAuth, createInscription);
+app.delete('/inscription/:id', validateAuth, dropInscription);
 
 app.use(handleNotFound);
 app.use(handleError);

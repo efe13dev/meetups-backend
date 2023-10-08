@@ -36,7 +36,6 @@ const createUser = async (req, res, next) => {
       .status(201)
       .send({ status: 'ok', id: insertId, email, message: 'user created' });
   } catch (error) {
-    console.log(error.code);
     next(error);
   }
 };
