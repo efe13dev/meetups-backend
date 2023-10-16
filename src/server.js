@@ -29,7 +29,7 @@ app.use(cors());
 const { PORT } = process.env;
 
 // endpoints users
-app.get('/users', getUsers);
+app.get('/users', validateAuth, getUsers);
 app.post('/users', createUser);
 app.delete('/users/:id', deleteUser);
 app.post('/login', loginUser);

@@ -9,7 +9,7 @@ const createUser = async (req, res, next) => {
     if (!result.success) {
       const [error] = JSON.parse(result.error);
 
-      throw new Error(`field:${error.path[0]}, ${error.message}`);
+      throw new Error(`${error.path[0]}, ${error.message}`);
     }
 
     const { email, password, name, biography } = req.body;

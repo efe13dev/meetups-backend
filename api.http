@@ -31,6 +31,8 @@ DELETE http://localhost:3000/meetup/10
 ### Recuperar todos los usuarios
 
 GET http://localhost:3000/users
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjk2MjYxMzcyLCJleHAiOjE2OTk3MTczNzJ9.v9z_fQI8ZWfzXW5rn-xYiaYKruoAEnFN8BjTCqMuYg0
 
 ### Login
 

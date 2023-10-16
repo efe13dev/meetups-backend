@@ -1,12 +1,14 @@
-const selectUsers = require('../../model/users/selectUsers.js');
+const selectUserById = require('../../model/users/selectUserById.js');
 
-const getMeetups = async (req, res) => {
+const getUsers = async (req, res) => {
+  const { id } = req.auth;
+  console.log(id);
   try {
-    const users = await selectUsers();
-    res.status(200).send({ status: 'ok', users });
+    const user = await selectUserById(id);
+    res.status(200).send({ status: 'ok', user });
   } catch (error) {
     console.log(error.message);
   }
 };
 
-module.exports = getMeetups;
+module.exports = getUsers;
