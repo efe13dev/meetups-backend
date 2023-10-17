@@ -2,7 +2,7 @@ const selectUserById = require('../../model/users/selectUserById.js');
 
 const getUsers = async (req, res) => {
   const { id } = req.auth;
-  console.log(id);
+
   try {
     const user = await selectUserById(id);
     res.status(200).send({ status: 'ok', user });

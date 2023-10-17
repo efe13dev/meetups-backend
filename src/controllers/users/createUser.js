@@ -22,7 +22,7 @@ const createUser = async (req, res, next) => {
       const avatar = req.files.avatar;
       processAvatar = await processAndSaveImage(avatar.data);
     } else {
-      processAvatar = 'No image';
+      processAvatar = 'avatar-default.png';
     }
     const encryptedPassword = await bcrypt.hash(password, 10);
     const insertId = await insertUser({
