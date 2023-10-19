@@ -19,7 +19,7 @@ const createMeetup = async (req, res, next) => {
       const photo = req.files.photo;
       processPhoto = await processAndSaveImage(photo.data);
     } else {
-      processPhoto = 'No image';
+      processPhoto = 'avatar-default.png';
     }
 
     const meetup_id = await insertMeetup({
