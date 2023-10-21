@@ -22,13 +22,13 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjk2MjYx
 }
 
 ### Borrar una meetup por id
-DELETE http://localhost:3000/meetup/10
+DELETE http://localhost:3000/meetup/8
 
 
 
 ### ------------------USERS--------------------
 
-### Recuperar todos los usuarios
+### Recuperar usuario por token
 
 GET http://localhost:3000/users
 Content-Type: application/json
@@ -60,4 +60,4 @@ Content-Type: application/json
 }
 
 ### Eliminar un usuario
-DELETE http://localhost:3000/users/20
+DELETE http://localhost:3000/users/1
