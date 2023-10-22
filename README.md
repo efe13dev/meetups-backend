@@ -19,14 +19,44 @@ estos
 - Visualizar un meetup en detalle. Deben de aparecer los mismos datos que en listado, pero a mayores la descripción y el listado de asistentes
 - Login (email y password)
 - Registro (email, password, nombre, biografía y avatar)
-- **Opcional**: Posibilidad de ordenar meetups por número de asistentes
 
 ### USUARIOS REGISTRADOS:
 
 - Lo mismo que los anónimos
 - Inscribirse o darse de baja de un meetup
 - Publicación de meetups (título, descripción, foto, temática, localidad y
-  fecha y hora)
-- **Opcional**: Ver el perfil de un usuario y los meetups a los que se ha
-  apuntado ordenados de más nuevo a más antiguo
-- **Opcional**: Gestión del perfil (nombre, biografía y avatar)
+  fecha y hora).
+
+## ENDPOINTS:
+
+- **USUARIOS**
+
+  - **GET** http://localhost:3000/users  
+    Recupera un usuario pasando un token
+
+  - **POST** http://localhost:3000/login  
+    Login de un usuario pasando un body con email y password
+
+  - **POST** http://localhost:3000/users  
+    Registro de un usuario pasando un body con email, password, nombre, biografía y avatar
+
+- **MEETUPS**
+
+  - **GET** http://localhost:3000/meetups  
+    Recupera todos los meetups ordenadas por fecha y hora,  
+    (no aparecen las que ya han pasado)
+
+  - **GET** http://localhost:3000/meetups/:id  
+    Recupera un meetup por su id
+
+  - **POST** http://localhost:3000/meetups  
+    Crear una nueva meetup pasando un body con el título, descripción, foto, temática, localidad y fecha y hora,
+    (se necesita token).
+
+## Notas de uso
+
+- Para usar el script `'npm run dev'` uso una nueva funcionalidad de node llamada `watch` que permite escuchar los cambios en el servidor y reiniciarlo automáticamente, (lo que se hacía con _nodemon_ antes).
+  Pero para ello debes usar la versión de node 21.0.0 o superior.
+
+- Para acceder como uno de los usuarios ya registrados usa: nombre_de_usuario@email.com
+- Todas las passwords de los usuarios que hay registrados son 12345
