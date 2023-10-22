@@ -53,6 +53,14 @@ estos
     Crear una nueva meetup pasando un body con el título, descripción, foto, temática, localidad y fecha y hora,
     (se necesita token).
 
+- **INSCRIPCIONES**
+
+  - **POST** http://localhost:3000/inscription/:id  
+    Inscribirse a un meetup pasando el token del usuario y id del meetup
+
+  - **DELETE** http://localhost:3000/inscription/:id  
+    Darse de baja de un meetup pasando el token del usuario y id del meetup
+
 ## Notas de uso
 
 - Para usar el script `'npm run dev'` uso una nueva funcionalidad de node llamada `watch` que permite escuchar los cambios en el servidor y reiniciarlo automáticamente, (lo que se hacía con _nodemon_ antes).
