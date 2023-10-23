@@ -63,8 +63,5 @@ estos
 
 ## Notas de uso
 
-- Para usar el script `'npm run dev'` uso una nueva funcionalidad de node llamada `watch` que permite escuchar los cambios en el servidor y reiniciarlo automáticamente, (lo que se hacía con _nodemon_ antes).
+- Para arrancar el servidor usar el script `'npm run dev'`, uso una nueva funcionalidad de node llamada `watch` que permite escuchar los cambios en el servidor y reiniciarlo automáticamente, (lo que se hacía con _nodemon_ antes).
   Pero para ello debes usar la versión de node 21.0.0 o superior.
-
-- Para acceder como uno de los usuarios ya registrados usa: nombre_de_usuario@email.com
-- Todas las passwords de los usuarios que hay registrados son 12345
