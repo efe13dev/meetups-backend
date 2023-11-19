@@ -65,3 +65,9 @@ estos
 
 - Para arrancar el servidor usar el script `'npm run dev'`, uso una nueva funcionalidad de node llamada `watch` que permite escuchar los cambios en el servidor y reiniciarlo automáticamente, (lo que se hacía con _nodemon_ antes).
   Pero para ello debes usar la versión de node 21.0.0 o superior.
+
+## TODO
+
+- Añadir en el env.example la variable de entorno UPLOAD_DIR
+- Hay que tener en cuenta que la persona que está probando el proyecto no tiene por qué llamarle meetups a la base de datos. Si la base de datos no se llama exactamente meetups la aplicación no funcionará y eso no se indica en ningún lado.
+- Las fotos han de guardarse necesariamente en la carpeta docs del servidor, dentro de otra carpeta llamada images. En este caso la carpeta docs sería la carpeta de ficheros estáticos, pero esta carpeta no suele llamarse así. Yo guardaría las fotos en una carpeta llamada uploads o static en la raíz del servidor. Lo de docs es un poco confuso. Además tampoco se está indicando por ningún lado que la carpeta de subida de archivos ha de llamarse obligatoriamente images.
