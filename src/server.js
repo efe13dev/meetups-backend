@@ -26,7 +26,8 @@ const app = express();
 app.use(express.json());
 app.use(fileUpload());
 app.use(cors());
-app.use(express.static('docs/images'));
+app.use(express.static('uploads/images'));
+app.use(express.static('./public'));
 const { PORT } = process.env;
 
 // endpoints users
