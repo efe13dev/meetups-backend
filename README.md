@@ -68,6 +68,9 @@ estos
 
 ## TODO
 
-- Añadir en el env.example la variable de entorno UPLOAD_DIR
-- Hay que tener en cuenta que la persona que está probando el proyecto no tiene por qué llamarle meetups a la base de datos. Si la base de datos no se llama exactamente meetups la aplicación no funcionará y eso no se indica en ningún lado.
+- ✅ Añadir en el env.example la variable de entorno UPLOAD_DIR  
+  **(Añadido el UPLOAD_DIR)**
+
+- ❓ Hay que tener en cuenta que la persona que está probando el proyecto no tiene por qué llamarle meetups a la base de datos. Si la base de datos no se llama exactamente meetups la aplicación no funcionará y eso no se indica en ningún lado. **(En el archivo initDB ahora importo la variable de entorno que le da nombre a la base de datos)**
+
 - Las fotos han de guardarse necesariamente en la carpeta docs del servidor, dentro de otra carpeta llamada images. En este caso la carpeta docs sería la carpeta de ficheros estáticos, pero esta carpeta no suele llamarse así. Yo guardaría las fotos en una carpeta llamada uploads o static en la raíz del servidor. Lo de docs es un poco confuso. Además tampoco se está indicando por ningún lado que la carpeta de subida de archivos ha de llamarse obligatoriamente images.

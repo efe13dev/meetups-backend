@@ -1,6 +1,8 @@
 require('dotenv').config();
 const getPool = require('./getPool.js');
 
+const { DATABASE_NAME } = process.env;
+
 // Función que crea desde cero la DB con todas sus tablas
 
 const initDb = async () => {

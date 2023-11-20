@@ -4,7 +4,11 @@ const path = require('path');
 const fs = require('fs').promises;
 
 // Generamos el path donde queremos que se guarden las imágenes de los posts. Queremos que sea en la carpeta src, dentro de la "UPLOADS_DIR" indicada en el .env y dentro de la carpeta posts. Por ejemplo, si la UPLOADS_DIR se llama "uploads", la ruta donde queremos que se guarden las fotos de los posts será así: "src/uploads/posts"
-const uploadsPath = path.join(__dirname, '../../docs', process.env.UPLOADS_DIR);
+const uploadsPath = path.join(
+  __dirname,
+  '../../uploads',
+  process.env.UPLOADS_DIR
+);
 
 // Un buffer almacena datos binarios. Esta función, recibe un buffer con los datos binarios de una imagen, la procesa y la guarda
 const processAndSaveImage = async (imageBuffer) => {
