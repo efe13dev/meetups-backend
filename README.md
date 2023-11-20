@@ -66,7 +66,7 @@ estos
 - Para arrancar el servidor usar el script `'npm run dev'`, uso una nueva funcionalidad de node llamada `watch` que permite escuchar los cambios en el servidor y reiniciarlo automáticamente, (lo que se hacía con _nodemon_ antes).
   Pero para ello debes usar la versión de node 21.0.0 o superior.
 
-## TODO
+## **TODO**
 
 - ✅ Añadir en el env.example la variable de entorno UPLOAD_DIR
 

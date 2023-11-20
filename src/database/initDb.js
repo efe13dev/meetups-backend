@@ -11,7 +11,7 @@ const initDb = async () => {
     console.log('Dropping database...🧨');
     await pool.query(`DROP DATABASE IF EXISTS meetups;`);
     console.log('Creating database...');
-    await pool.query(`CREATE DATABASE meetups;`);
+    await pool.query(`CREATE DATABASE ${DATABASE_NAME};`);
     await pool.query(`USE meetups;`);
 
     console.log('Database created');
