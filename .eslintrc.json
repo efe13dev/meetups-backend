@@ -1,0 +1,6 @@
+{
+  "extends": ["./node_modules/semistandard/eslintrc.json", "prettier"],
+  "rules": {
+    "camelcase": "off"
+  }
+}
