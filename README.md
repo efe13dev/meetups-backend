@@ -1,31 +1,14 @@
 # Meetups
 
+[![Alt text](https://img.youtube.com/vi/n9YUwfJ52zU/0.jpg)](https://www.youtube.com/watch?v=n9YUwfJ52zU)
+
 ## DESCRIPCIÓN
 
-Portal web que muestra meetups por ciudad y temática y permite inscribirse a
-estos
+### Backend de la app Meetups:
 
-### USUARIOS ANÓNIMOS:
+- API que se encarga de escuchar las peticiones del cliente y devolver una respuesta
 
-- Visualizar el listado de meetups ordenador por fecha más próxima (no
-  aparecen los que ya han pasado). Solo debe aparecer título, foto,
-  temática, localidad, fecha y hora y número de asistentes.
-
-- Filtrar meetups por:
-
-1. Ciudad
-2. Temática
-
-- Visualizar un meetup en detalle. Deben de aparecer los mismos datos que en listado, pero a mayores la descripción y el listado de asistentes
-- Login (email y password)
-- Registro (email, password, nombre, biografía y avatar)
-
-### USUARIOS REGISTRADOS:
-
-- Lo mismo que los anónimos
-- Inscribirse o darse de baja de un meetup
-- Publicación de meetups (título, descripción, foto, temática, localidad y
-  fecha y hora).
+- Esta API se conecta a una base de datos de MySQL donde se guarda toda la información.
 
 ## ENDPOINTS:
 
@@ -64,18 +47,4 @@ estos
 ## Notas de uso
 
 - Para arrancar el servidor usar el script `'npm run dev'`, uso una nueva funcionalidad de node llamada `watch` que permite escuchar los cambios en el servidor y reiniciarlo automáticamente, (lo que se hacía con _nodemon_ antes).
-  Pero para ello debes usar la versión de node 21.0.0 o superior.
-
-## **TODO**
-
-- ✅ Añadir en el env.example la variable de entorno UPLOAD_DIR
-
-  **(Añadido el UPLOAD_DIR)**
-
-- ✅ Hay que tener en cuenta que la persona que está probando el proyecto no tiene por qué llamarle meetups a la base de datos. Si la base de datos no se llama exactamente meetups la aplicación no funcionará y eso no se indica en ningún lado.
-
-  **(En el archivo initDB ahora importo la variable de entorno que le da nombre a la base de datos)**
-
-- ✅ Las fotos han de guardarse necesariamente en la carpeta docs del servidor, dentro de otra carpeta llamada images. En este caso la carpeta docs sería la carpeta de ficheros estáticos, pero esta carpeta no suele llamarse así. Yo guardaría las fotos en una carpeta llamada uploads o static en la raíz del servidor. Lo de docs es un poco confuso. Además tampoco se está indicando por ningún lado que la carpeta de subida de archivos ha de llamarse obligatoriamente images.
-
-  **(Cambiado el directorio docs por uploads dentro de este se crea una carpeta con el nombre que se le dé en la variable de entorno UPLOAD_DIR y dentro de ella se guardan las imágenes)**
+  Pero para ello debes **usar la versión de node 21.0.0 o superior**.
