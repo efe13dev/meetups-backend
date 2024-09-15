@@ -14,7 +14,9 @@ const createMeetup = async (req, res, next) => {
     const userId = req.auth.id;
 
     const { title, description, category, city, date } = req.body;
+
     let processPhoto;
+
     if (req.files) {
       const photo = req.files.photo;
       processPhoto = await processAndSaveImage(photo.data);

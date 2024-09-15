@@ -1,22 +1,25 @@
 require('dotenv').config();
 const cors = require('cors');
-
 const express = require('express');
 const fileUpload = require('express-fileupload');
 
-const getMeetups = require('./controllers/meetups/getMeetups.js');
+//Meetups
 const createMeetup = require('./controllers/meetups/createMeetup.js');
-const getMeetupById = require('./controllers/meetups/getMeetupById.js');
 const deleteMeetup = require('./controllers/meetups/deleteMeetup.js');
+const getMeetups = require('./controllers/meetups/getMeetups.js');
+const getMeetupById = require('./controllers/meetups/getMeetupById.js');
 
-const getUsers = require('./controllers/users/getUsers.js');
+//Users
 const createUser = require('./controllers/users/createUser.js');
-const loginUser = require('./controllers/users/loginUser.js');
 const deleteUser = require('./controllers/users/deleteUser.js');
+const loginUser = require('./controllers/users/loginUser.js');
+const getUsers = require('./controllers/users/getUsers.js');
 
+//Inscriptions
 const createInscription = require('./controllers/inscriptions/createInscription.js');
 const dropInscription = require('./controllers/inscriptions/dropInscription.js');
 
+//Middlewares
 const validateAuth = require('./middlewares/validateAuth.js');
 const handleNotFound = require('./middlewares/handleNotFound.js');
 const handleError = require('./middlewares/handleError.js');
@@ -28,19 +31,20 @@ app.use(fileUpload());
 app.use(cors());
 app.use(express.static('uploads/images'));
 app.use(express.static('./public'));
+
 const { PORT } = process.env;
 
 // endpoints users
-app.get('/users', validateAuth, getUsers);
 app.post('/users', createUser);
 app.delete('/users/:id', deleteUser);
 app.post('/login', loginUser);
+app.get('/users', validateAuth, getUsers);
 
 // endopints meetups
-app.get('/meetups', getMeetups);
 app.post('/meetups', validateAuth, createMeetup);
-app.get('/meetup/:id', getMeetupById);
 app.delete('/meetup/:id', deleteMeetup);
+app.get('/meetups', getMeetups);
+app.get('/meetup/:id', getMeetupById);
 
 // endpoints inscriptions
 app.post('/inscription/:id', validateAuth, createInscription);

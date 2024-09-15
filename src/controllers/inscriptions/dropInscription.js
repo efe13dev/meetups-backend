@@ -5,6 +5,7 @@ const dropInscription = async (req, res, next) => {
     const userId = req.auth.id;
 
     const { id } = req.params;
+
     const data = await deleteInscription({
       id_user: userId,
       id_meetup: id

@@ -10,6 +10,7 @@ const populateDb = async () => {
     await pool.query(`
        USE meetups;
     `);
+
     console.log('Inserting users...');
 
     await pool.query(`INSERT INTO users (email, password, name, biography)

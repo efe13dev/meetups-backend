@@ -3,9 +3,11 @@ const userSchema = require('../../schemas/userSchema.js');
 const selectUserByEmail = require('../../model/users/selectUserByEmail.js');
 const insertUser = require('../../model/users/insertUser.js');
 const processAndSaveImage = require('../../utils/processAndSaveImage.js');
+
 const createUser = async (req, res, next) => {
   try {
     const result = await userSchema.safeParseAsync(req.body);
+
     if (!result.success) {
       const [error] = JSON.parse(result.error);
 
@@ -14,16 +16,20 @@ const createUser = async (req, res, next) => {
 
     const { email, password, name, biography } = req.body;
     const user = await selectUserByEmail(email);
+
     if (user) {
       throw new Error('User already exists');
     }
+
     let processAvatar;
+
     if (req.files) {
       const avatar = req.files.avatar;
       processAvatar = await processAndSaveImage(avatar.data);
     } else {
       processAvatar = 'avatar-default.png';
     }
+
     const encryptedPassword = await bcrypt.hash(password, 10);
     const insertId = await insertUser({
       email,
@@ -32,6 +38,7 @@ const createUser = async (req, res, next) => {
       biography,
       avatar: processAvatar
     });
+
     res
       .status(201)
       .send({ status: 'ok', id: insertId, email, message: 'user created' });

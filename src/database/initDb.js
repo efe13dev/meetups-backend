@@ -46,6 +46,7 @@ const initDb = async () => {
     `);
 
     console.log('Creating assistants table...');
+
     await pool.query(`
         CREATE TABLE inscriptions
     (id_user INT UNSIGNED NOT NULL,
