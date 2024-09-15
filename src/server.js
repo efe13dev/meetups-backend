@@ -3,23 +3,23 @@ const cors = require('cors');
 const express = require('express');
 const fileUpload = require('express-fileupload');
 
-//Meetups
+// Meetups
 const createMeetup = require('./controllers/meetups/createMeetup.js');
 const deleteMeetup = require('./controllers/meetups/deleteMeetup.js');
 const getMeetups = require('./controllers/meetups/getMeetups.js');
 const getMeetupById = require('./controllers/meetups/getMeetupById.js');
 
-//Users
+// Users
 const createUser = require('./controllers/users/createUser.js');
 const deleteUser = require('./controllers/users/deleteUser.js');
 const loginUser = require('./controllers/users/loginUser.js');
 const getUsers = require('./controllers/users/getUsers.js');
 
-//Inscriptions
+// Inscriptions
 const createInscription = require('./controllers/inscriptions/createInscription.js');
 const dropInscription = require('./controllers/inscriptions/dropInscription.js');
 
-//Middlewares
+// Middlewares
 const validateAuth = require('./middlewares/validateAuth.js');
 const handleNotFound = require('./middlewares/handleNotFound.js');
 const handleError = require('./middlewares/handleError.js');
