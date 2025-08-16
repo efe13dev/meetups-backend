@@ -4,8 +4,10 @@ const insertUser = async (user) => {
 
   const [{ insertId }] = await pool.query(
     'INSERT INTO users (email, password, name, biography, avatar) VALUES (?, ?, ?, ?, ?)',
-    [user.email, user.password, user.name, user.biography, user.avatar]
+    [user.email, user.password, user.name, user.biography, user.avatar],
   );
+
   return insertId;
 };
+
 module.exports = insertUser;

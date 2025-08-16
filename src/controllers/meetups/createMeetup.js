@@ -1,5 +1,5 @@
-const meetupSchema = require('../../schemas/meetupsSchema.js');
 const insertMeetup = require('../../model/meetups/insertMeetup.js');
+const meetupSchema = require('../../schemas/meetupsSchema.js');
 const processAndSaveImage = require('../../utils/processAndSaveImage.js');
 
 const createMeetup = async (req, res, next) => {
@@ -19,6 +19,7 @@ const createMeetup = async (req, res, next) => {
 
     if (req.files) {
       const photo = req.files.photo;
+
       processPhoto = await processAndSaveImage(photo.data);
     } else {
       processPhoto = 'default-meetup-image.png';
@@ -31,8 +32,9 @@ const createMeetup = async (req, res, next) => {
       category,
       city,
       date,
-      user_id: userId
+      user_id: userId,
     });
+
     res.status(200).send({
       status: 'ok',
       data: {
@@ -43,11 +45,12 @@ const createMeetup = async (req, res, next) => {
         category,
         city,
         date,
-        userId
-      }
+        userId,
+      },
     });
   } catch (error) {
     next(error);
   }
 };
+
 module.exports = createMeetup;

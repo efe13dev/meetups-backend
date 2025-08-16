@@ -7,8 +7,10 @@ const insertMeetup = async (meetup) => {
 
   const [{ insertId }] = await pool.query(
     'INSERT INTO meetups (title, description, photo, category, city, date, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)',
-    [title, description, photo, category, city, new Date(date), user_id]
+    [title, description, photo, category, city, new Date(date), user_id],
   );
+
   return insertId;
 };
+
 module.exports = insertMeetup;

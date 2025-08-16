@@ -7,13 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch src/server.js",
     "initDb": "node src/database/initDb.js",
-    "populateDb": "node src/database/populateDb.js"
+    "populateDb": "node src/database/populateDb.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
     "semistandard": "^17.0.0"
   },
   "dependencies": {

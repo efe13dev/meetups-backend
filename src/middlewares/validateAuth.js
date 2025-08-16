@@ -16,4 +16,5 @@ const validateAuth = (req, res, next) => {
     next(error);
   }
 };
+
 module.exports = validateAuth;

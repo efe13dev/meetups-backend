@@ -1,6 +1,6 @@
 // Middleware que se encarga de gestionar todos los errores.
 
-const handleError = (error, req, res, next) => {
+const handleError = (error, req, res, _next) => {
   console.error(error);
 
   // Cuando el error que salta tiene el nombre "ValidationError" (error tirado por Joi), le ponemos un statusCode 400
@@ -9,9 +9,7 @@ const handleError = (error, req, res, next) => {
   }
 
   // Se envía una respuesta con el statusCode que venga en el error, o si este no existe, mandamos el status 500
-  res
-    .status(error.statusCode || 500)
-    .send({ status: 'error', message: error.message });
+  res.status(error.statusCode || 500).send({ status: 'error', message: error.message });
 };
 
 module.exports = handleError;

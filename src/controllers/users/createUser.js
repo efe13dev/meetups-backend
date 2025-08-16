@@ -1,7 +1,8 @@
 const bcrypt = require('bcrypt');
-const userSchema = require('../../schemas/userSchema.js');
-const selectUserByEmail = require('../../model/users/selectUserByEmail.js');
+
 const insertUser = require('../../model/users/insertUser.js');
+const selectUserByEmail = require('../../model/users/selectUserByEmail.js');
+const userSchema = require('../../schemas/userSchema.js');
 const processAndSaveImage = require('../../utils/processAndSaveImage.js');
 
 const createUser = async (req, res, next) => {
@@ -25,6 +26,7 @@ const createUser = async (req, res, next) => {
 
     if (req.files) {
       const avatar = req.files.avatar;
+
       processAvatar = await processAndSaveImage(avatar.data);
     } else {
       processAvatar = 'avatar-default.png';
@@ -36,14 +38,13 @@ const createUser = async (req, res, next) => {
       password: encryptedPassword,
       name,
       biography,
-      avatar: processAvatar
+      avatar: processAvatar,
     });
 
-    res
-      .status(201)
-      .send({ status: 'ok', id: insertId, email, message: 'user created' });
+    res.status(201).send({ status: 'ok', id: insertId, email, message: 'user created' });
   } catch (error) {
     next(error);
   }
 };
+
 module.exports = createUser;

@@ -15,7 +15,7 @@ const meetupSchema = z.object({
     'Salud',
     'Arte',
     'Cultura',
-    'Otras'
+    'Otras',
   ]),
   city: z.enum([
     'Andalucia',
@@ -34,8 +34,9 @@ const meetupSchema = z.object({
     'Rioja',
     'Murcia',
     'Navarra',
-    'Pais_Vasco'
+    'Pais_Vasco',
   ]),
-  date: z.string().datetime()
+  date: z.string().datetime(),
 });
+
 module.exports = meetupSchema;

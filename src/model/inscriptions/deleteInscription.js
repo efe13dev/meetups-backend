@@ -7,8 +7,10 @@ const deleteInscription = async (inscription) => {
 
   const [{ affectedRows }] = await pool.query(
     'DELETE FROM inscriptions WHERE id_user = ? and id_meetup = ?',
-    [id_user, id_meetup]
+    [id_user, id_meetup],
   );
+
   return affectedRows;
 };
+
 module.exports = deleteInscription;

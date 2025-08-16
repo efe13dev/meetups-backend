@@ -5,7 +5,7 @@ const userSchema = z.object({
   password: z.string(),
   name: z.string().min(3).max(50),
   biography: z.string().optional(),
-  avatar: z.string().optional()
+  avatar: z.string().optional(),
 });
 
 module.exports = userSchema;

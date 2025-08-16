@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 require('dotenv').config();
 const getPool = require('./getPool.js');
 
@@ -8,6 +10,7 @@ const { DATABASE_NAME } = process.env;
 const initDb = async () => {
   try {
     const pool = getPool();
+
     console.log('Dropping database...🧨');
     await pool.query(`DROP DATABASE IF EXISTS ${DATABASE_NAME};`);
     console.log('Creating database...');
@@ -25,7 +28,7 @@ const initDb = async () => {
         password VARCHAR(100)NOT NULL,
         name VARCHAR(50) NOT NULL,
         biography VARCHAR(2000),
-        avatar VARCHAR(500));
+        avatar VARCHAR(500) DEFAULT 'avatar-default.png');
     `);
 
     console.log('Creating meetups table...');
@@ -35,7 +38,7 @@ const initDb = async () => {
     (id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     description VARCHAR(4000) NOT NULL,
-    photo VARCHAR(500),
+    photo VARCHAR(500) DEFAULT 'default-meetup-image.png',
     category ENUM('Fotografia','Ciencia','Tecnologia','Gastronomia','Naturaleza','Literatura','Musica','Salud','Arte','Cultura','Otras'),
     city ENUM ('Andalucia','Aragon','Asturias','Cantabria','Castilla_León','Castilla_La_Mancha','Cataluña','Madrid', 
     'Valencia','Extremadura','Galicia','Baleares','Canarias','Rioja','Murcia','Navarra','Pais_Vasco'),

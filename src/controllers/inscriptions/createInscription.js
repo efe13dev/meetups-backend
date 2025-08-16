@@ -9,7 +9,7 @@ const createInscription = async (req, res, next) => {
     try {
       await insertInscription({
         id_user: userId,
-        id_meetup: id
+        id_meetup: id,
       });
     } catch (error) {
       throw new Error('User already inscribed');
@@ -20,4 +20,5 @@ const createInscription = async (req, res, next) => {
     next(error);
   }
 };
+
 module.exports = createInscription;

@@ -8,7 +8,7 @@ const dropInscription = async (req, res, next) => {
 
     const data = await deleteInscription({
       id_user: userId,
-      id_meetup: id
+      id_meetup: id,
     });
 
     if (data === 0) {
@@ -20,4 +20,5 @@ const dropInscription = async (req, res, next) => {
     next(error);
   }
 };
+
 module.exports = dropInscription;

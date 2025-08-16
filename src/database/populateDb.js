@@ -1,5 +1,8 @@
+/* eslint-disable no-console */
+
 require('dotenv').config();
 const bcrypt = require('bcrypt');
+
 const getPool = require('./getPool');
 
 // Funcion que inserta datos de prueba en la DB
@@ -7,8 +10,9 @@ const getPool = require('./getPool');
 const populateDb = async () => {
   try {
     const pool = getPool();
+
     await pool.query(`
-       USE meetups;
+       USE ${process.env.DATABASE_NAME};
     `);
 
     console.log('Inserting users...');
@@ -62,56 +66,56 @@ const populateDb = async () => {
    'Aprende las técnicas de fotografía nocturna con expertos en el campo.',
    'Fotografia',
    'Asturias',
-   '2023-11-02 11:00:00',
+   DATE_ADD(NOW(), INTERVAL 3 DAY),
    1
    ),
    ('Charla sobre Inteligencia Artificial en la Medicina',
    'Explora el impacto de la IA en la atención médica.',
    'Ciencia',
    'Cataluña',
-   '2023-11-05 16:30:00',
+   DATE_ADD(NOW(), INTERVAL 5 DAY),
    5
    ),
    ('Networking para Emprendedores',
    'Conecta con otros emprendedores y comparte experiencias.',
    'Tecnologia',
    'Madrid',
-   '2023-10-20 09:15:00',
+   DATE_ADD(NOW(), INTERVAL 7 DAY),
    2
    ),
    ('Curso de Yoga al Aire Libre',
    'Encuentra paz y equilibrio practicando yoga en la naturaleza.',
    'Salud',
    'Baleares',
-   '2023-12-04 08:30:00',
+   DATE_ADD(NOW(), INTERVAL 10 DAY),
    3
    ),
    ('Taller de Cocina Vegetariana',
    'Aprende a preparar deliciosos platos vegetarianos.',
    'Gastronomía',
    'Murcia',
-   '2023-12-08 12:30:00',
+   DATE_ADD(NOW(), INTERVAL 12 DAY),
    3
    ),
    ('Conferencia de Cambio Climático',
    'Explora soluciones para combatir el cambio climático.',
    'Ciencia',
    'Valencia',
-   '2023-10-02 18:00:00',
+   DATE_ADD(NOW(), INTERVAL 14 DAY),
    5
    ),
    ('Grupo de Lectura: Libro del Mes',
    'Un espacio para discutir y compartir tus lecturas favoritas.',
    'Literatura',
    'Andalucia',
-   '2023-11-02 11:00:00',
+   DATE_ADD(NOW(), INTERVAL 16 DAY),
    4
    ),
    ('Taller de Desarrollo de Videojuegos',
    'Aprende a crear tus propios videojuegos desde cero.',
    'Tecnologia',
    'Extremadura',
-   '2023-11-14 10:30:00',
+   DATE_ADD(NOW(), INTERVAL 20 DAY),
    5
    );
     `);

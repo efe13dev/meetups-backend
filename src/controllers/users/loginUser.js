@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+
 const selectUserByEmail = require('../../model/users/selectUserByEmail.js');
 const loginSchema = require('../../schemas/loginSchema.js');
 
@@ -28,7 +29,7 @@ const loginUser = async (req, res, next) => {
 
     const tokenPayload = { id: user.id };
     const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, {
-      expiresIn: '40d'
+      expiresIn: '40d',
     });
 
     res.status(200).send({ status: 'ok', data: { token }, id: user.id });
@@ -36,4 +37,5 @@ const loginUser = async (req, res, next) => {
     next(error);
   }
 };
+
 module.exports = loginUser;

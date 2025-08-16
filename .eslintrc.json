@@ -1,6 +1,76 @@
 {
-  "extends": ["./node_modules/semistandard/eslintrc.json", "prettier"],
+  "root": true,
+  "ignorePatterns": ["node_modules/", "dist/", "coverage/", ".idea/", "public/"],
+  "env": {
+    "node": true,
+    "es2022": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "script"
+  },
+  "extends": [
+    "./node_modules/semistandard/eslintrc.json",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["import"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".json"]
+      }
+    }
+  },
   "rules": {
-    "camelcase": "off"
+    "camelcase": "off",
+    "padding-line-between-statements": [
+      "warn",
+      { "blankLine": "always", "prev": "*", "next": ["return", "export"] },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"] }
+    ],
+    "no-console": ["warn", { "allow": ["error"] }],
+    "no-unused-vars": [
+      "warn",
+      {
+        "args": "after-used",
+        "argsIgnorePattern": "^_.*?$",
+        "caughtErrorsIgnorePattern": "^_.*?$"
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "pathGroups": [
+          { "pattern": "@/*", "group": "external", "position": "after" }
+        ],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "prettier/prettier": [
+      "warn",
+      {
+        "printWidth": 100,
+        "trailingComma": "all",
+        "tabWidth": 2,
+        "semi": true,
+        "singleQuote": true,
+        "bracketSpacing": true,
+        "arrowParens": "always",
+        "endOfLine": "auto"
+      }
+    ]
   }
 }

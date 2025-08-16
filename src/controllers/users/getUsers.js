@@ -5,9 +5,10 @@ const getUsers = async (req, res) => {
 
   try {
     const user = await selectUserById(id);
+
     res.status(200).send({ status: 'ok', user });
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
   }
 };
 

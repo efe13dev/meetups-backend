@@ -1,7 +1,11 @@
+/* eslint import/order: "off" */
+/* eslint no-console: "off" */
+
 require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const fileUpload = require('express-fileupload');
+const path = require('path');
 
 // Meetups
 const createMeetup = require('./controllers/meetups/createMeetup.js');
@@ -29,7 +33,8 @@ const app = express();
 app.use(express.json());
 app.use(fileUpload());
 app.use(cors());
-app.use(express.static('uploads/images'));
+// Servir archivos subidos desde src/uploads/<UPLOADS_DIR> bajo la ruta /uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.static('./public'));
 
 const { PORT } = process.env;

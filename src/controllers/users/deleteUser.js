@@ -6,10 +6,7 @@ const deleteUser = async (req, res, next) => {
     const { id } = req.params;
     const user = await selectUserById(id);
 
-    if (!user)
-      return res
-        .status(404)
-        .send({ status: 'error', message: `User id:${id} not found` });
+    if (!user) return res.status(404).send({ status: 'error', message: `User id:${id} not found` });
 
     await deleteUserById(id);
 
@@ -18,4 +15,5 @@ const deleteUser = async (req, res, next) => {
     next(error);
   }
 };
+
 module.exports = deleteUser;

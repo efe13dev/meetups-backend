@@ -7,9 +7,7 @@ const deleteMeetup = async (req, res, next) => {
     const meetup = await selectMeetupById(id);
 
     if (!meetup)
-      return res
-        .status(404)
-        .send({ status: 'error', message: `Meetup id:${id} not found` });
+      return res.status(404).send({ status: 'error', message: `Meetup id:${id} not found` });
 
     await deleteMeetupById(id);
 
@@ -18,4 +16,5 @@ const deleteMeetup = async (req, res, next) => {
     next(error);
   }
 };
+
 module.exports = deleteMeetup;
