@@ -29,12 +29,15 @@
     Recupera todos los meetups ordenadas por fecha y hora,  
     (no aparecen las que ya han pasado)
 
-  - **GET** http://localhost:3000/meetups/:id  
+  - **GET** http://localhost:3000/meetup/:id  
     Recupera un meetup por su id
 
   - **POST** http://localhost:3000/meetups  
     Crear una nueva meetup pasando un body con el título, descripción, foto, temática, localidad y fecha y hora,
     (se necesita token).
+
+  - **DELETE** http://localhost:3000/meetup/:id  
+    Elimina un meetup por su id
 
 - **INSCRIPCIONES**
 
